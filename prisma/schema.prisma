@@ -19,7 +19,17 @@ model Movie {
   title       String
   director    String
   releaseYear Int
-  genre       String
+
+  genres      Genre[]
 
   @@map("movies")
 }
+
+model Genre {
+  id      Int     @id @default(autoincrement())
+  name    String @unique
+
+  movies  Movie[]
+
+  @@map("genres")
+   }
